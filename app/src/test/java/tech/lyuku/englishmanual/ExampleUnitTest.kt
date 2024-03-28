@@ -1,4 +1,4 @@
-package tech.lyuku.manual
+package tech.lyuku.englishmanual
 
 import org.junit.Test
 
