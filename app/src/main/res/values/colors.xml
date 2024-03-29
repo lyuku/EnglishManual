@@ -7,4 +7,7 @@
     <color name="primaryTextColor">#212121</color>
     <color name="secondaryTextColor">#424242</color>
     <color name="toolbarIconColor">#212121</color>
+    <color name="tertiaryTextColor">#909090</color>
+
+    <color name="labelBackground">#e7e7e7</color>
 </resources>
