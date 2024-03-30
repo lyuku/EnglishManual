@@ -2,4 +2,6 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="item_space_small">4dp</dimen>
     <dimen name="item_space_middle">8dp</dimen>
+
+    <dimen name="text_size_small">12sp</dimen>
 </resources>

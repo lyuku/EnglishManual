@@ -4,4 +4,12 @@
     <string name="publisher">Publisher</string>
     <string name="add_to_my_books">Add to MyBooks</string>
     <string name="free_reading">Free Reading</string>
+
+    <string name="book_action_study">App Study</string>
+    <string name="book_action_test">Test</string>
+    <string name="book_action_audio">Listening</string>
+    <string name="book_action_shadowing">Shadowing</string>
+    <string name="book_action_vocab">Vocabulary</string>
+    <string name="book_action_mark_sheet">Marked List</string>
+    <string name="book_action_study_time">Study Time</string>
 </resources>

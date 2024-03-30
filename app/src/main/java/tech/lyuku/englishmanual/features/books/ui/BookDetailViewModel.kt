@@ -3,6 +3,7 @@ package tech.lyuku.englishmanual.features.books.ui
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import tech.lyuku.englishmanual.core.utils.SingleLiveEvent
+import tech.lyuku.englishmanual.models.BookDetailAction
 import tech.lyuku.englishmanual.models.BookItem
 import javax.inject.Inject
 
@@ -12,7 +13,7 @@ class BookDetailViewModel @Inject constructor(
 
     var book: BookItem? = null
     val closeActivity = SingleLiveEvent<Boolean>()
-
+    val actions = BookDetailAction.entries
     fun init(bookItem: BookItem?) {
         book = bookItem
     }

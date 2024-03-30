@@ -2,6 +2,7 @@ package tech.lyuku.englishmanual.core.utils
 
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import coil.load
 import coil.transform.CircleCropTransformation
@@ -20,4 +21,11 @@ fun ImageView.bindSrcUrl(
         }
 
     }
+}
+
+@BindingAdapter("srcDrawable", requireAll = false)
+fun ImageView.bindSrcDrawable(
+    @DrawableRes srcDrawable: Int,
+) {
+    this.setImageResource(srcDrawable)
 }

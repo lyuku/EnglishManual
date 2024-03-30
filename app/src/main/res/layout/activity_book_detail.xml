@@ -12,7 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:id="@+id/ib_go_back"
@@ -27,6 +27,7 @@
             tools:ignore="ContentDescription" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_book_detail_info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="@dimen/fab_margin"
@@ -137,8 +138,21 @@
                 app:layout_constraintStart_toEndOf="@id/md_divider"
                 app:layout_constraintTop_toBottomOf="@id/tv_publisher" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_book_detail_actions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_book_detail_info"
+            app:spanCount="4"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_book_detail_action"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:spanCount="4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
