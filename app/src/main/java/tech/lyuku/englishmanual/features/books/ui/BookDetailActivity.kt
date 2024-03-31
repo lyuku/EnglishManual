@@ -44,7 +44,6 @@ class BookDetailActivity : AppCompatActivity() {
             stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         }
         adapter.submitList(viewModel.actions)
-//        binding.rvBookDetailActions.addItemDecoration(GridSpaceItemDecoration(4))
         binding.rvBookDetailActions.adapter = adapter
 
         viewModel.closeActivity.observe(this) {

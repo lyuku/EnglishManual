@@ -3,26 +3,18 @@ package tech.lyuku.englishmanual.features.books.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
+import tech.lyuku.englishmanual.core.ui.ACommonAdapter
+import tech.lyuku.englishmanual.core.ui.ACommonViewHolder
 import tech.lyuku.englishmanual.databinding.ItemBookCategoryBinding
 import tech.lyuku.englishmanual.models.BookItem
 import tech.lyuku.englishmanual.models.SubCategory
 
 class BookCategoryAdapter(
     private val onBookClicked: (book: BookItem, bookImgView: View) -> Unit
-) :
-    ListAdapter<SubCategory, BookCategoryAdapter.ViewHolder>(BookCategoryDiffCallback()) {
+) : ACommonAdapter<SubCategory, BookCategoryAdapter.ViewHolder>() {
 
-    private var inflater: LayoutInflater? = null
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        if (inflater == null) {
-            inflater = LayoutInflater.from(parent.context)
-        }
-
-        val binding = ItemBookCategoryBinding.inflate(inflater!!, parent, false)
+    override fun createViewHolder(inflater: LayoutInflater, parent: ViewGroup): ViewHolder {
+        val binding = ItemBookCategoryBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -34,10 +26,8 @@ class BookCategoryAdapter(
         return getItem(position).idCategory.hashCode().toLong()
     }
 
-    /**
-     * Adapter
-     */
-    inner class ViewHolder(val binding: ItemBookCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemBookCategoryBinding) :
+        ACommonViewHolder<SubCategory>(binding.root) {
 
         private val moviesAdapter by lazy {
             val adapter = BookAdapter(onBookClicked).apply {
@@ -48,20 +38,9 @@ class BookCategoryAdapter(
             adapter
         }
 
-        fun bind(category: SubCategory) {
-            binding.bookCategory = category
-            moviesAdapter.submitList(category.bookList)
+        override fun bind(item: SubCategory) {
+            binding.bookCategory = item
+            moviesAdapter.submitList(item.bookList)
         }
-    }
-}
-
-class BookCategoryDiffCallback : DiffUtil.ItemCallback<SubCategory>() {
-
-    override fun areItemsTheSame(oldItem: SubCategory, newItem: SubCategory): Boolean {
-        return oldItem.idCategory == newItem.idCategory
-    }
-
-    override fun areContentsTheSame(oldItem: SubCategory, newItem: SubCategory): Boolean {
-        return oldItem == newItem
     }
 }
