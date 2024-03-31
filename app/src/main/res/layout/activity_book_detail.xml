@@ -53,12 +53,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/item_space_middle"
+                android:fontFamily="sans-serif-medium"
                 android:text="@{viewModel.book.nameBook}"
                 android:textColor="@color/primaryTextColor"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_book"
                 app:layout_constraintTop_toTopOf="@id/iv_book"
-                tools:text="@tools:sample/lorem" />
+                tools:text="Test very long name, Test very long name, Test very long name, Test very long name" />
 
             <TextView
                 android:id="@+id/tv_author_label"
@@ -66,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_space_middle"
                 android:background="@drawable/shape_label_background"
+                android:paddingBottom="2dp"
                 android:text="@string/author"
                 android:textAlignment="center"
                 android:textColor="@color/tertiaryTextColor"
@@ -74,13 +77,15 @@
 
             <TextView
                 android:id="@+id/tv_author"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/item_space_middle"
                 android:text="@{viewModel.book.author}"
                 android:textColor="@color/tertiaryTextColor"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tv_author_label"
-                app:layout_constraintTop_toTopOf="@id/tv_author_label" />
+                app:layout_constraintTop_toTopOf="@id/tv_author_label"
+                tools:text="Test very long name, Test very long name, Test very long name, Test very long name" />
 
             <TextView
                 android:id="@+id/tv_publisher_label"
@@ -88,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_space_middle"
                 android:background="@drawable/shape_label_background"
+                android:paddingBottom="2dp"
                 android:text="@string/publisher"
                 android:textAlignment="center"
                 android:textColor="@color/tertiaryTextColor"
@@ -96,22 +102,27 @@
 
             <TextView
                 android:id="@+id/tv_publisher"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/item_space_middle"
                 android:text="@{viewModel.book.publisher}"
                 android:textColor="@color/tertiaryTextColor"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tv_publisher_label"
-                app:layout_constraintTop_toTopOf="@id/tv_publisher_label" />
+                app:layout_constraintTop_toTopOf="@id/tv_publisher_label"
+                tools:text="Test very long name, Test very long name, Test very long name, Test very long name" />
 
             <TextView
-                android:id="@+id/tv_add_to_my_books"
+                android:id="@+id/tv_my_books"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_space_middle"
-                android:onClick="@{()-> viewModel.addToMyBooks()}"
+                android:background="@drawable/shape_my_book_background"
+                android:onClick="@{()-> viewModel.onChangeIsMyBook()}"
+                android:padding="@dimen/item_space_small"
                 android:text="@string/add_to_my_books"
                 android:textAlignment="center"
+                android:textColor="@color/color_my_book_color_selector"
                 app:layout_constraintEnd_toStartOf="@id/md_divider"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="@id/tv_publisher_label"
@@ -122,17 +133,20 @@
                 android:layout_width="@dimen/fab_margin"
                 android:layout_height="0dp"
                 app:layout_constraintEnd_toStartOf="@id/tv_free_reading"
-                app:layout_constraintStart_toEndOf="@id/tv_add_to_my_books"
-                app:layout_constraintTop_toTopOf="@id/tv_add_to_my_books" />
+                app:layout_constraintStart_toEndOf="@id/tv_my_books"
+                app:layout_constraintTop_toTopOf="@id/tv_my_books" />
 
             <TextView
                 android:id="@+id/tv_free_reading"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_space_middle"
+                android:background="@drawable/shape_free_reading_background"
                 android:onClick="@{()-> viewModel.freeReading()}"
+                android:padding="@dimen/item_space_small"
                 android:text="@string/free_reading"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@id/md_divider"
@@ -150,8 +164,8 @@
             app:layout_constraintTop_toBottomOf="@id/cl_book_detail_info"
             app:spanCount="4"
             tools:itemCount="10"
-            tools:listitem="@layout/item_book_detail_action"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/item_book_detail_action"
             tools:spanCount="4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

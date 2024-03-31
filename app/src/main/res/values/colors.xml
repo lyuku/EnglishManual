@@ -4,10 +4,14 @@
     <color name="colorPrimaryDark">@android:color/black</color>
     <color name="colorAccent">@android:color/black</color>
 
+    <color name="black">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+
     <color name="primaryTextColor">#212121</color>
     <color name="secondaryTextColor">#424242</color>
     <color name="toolbarIconColor">#212121</color>
     <color name="tertiaryTextColor">#909090</color>
 
     <color name="labelBackground">#e7e7e7</color>
+    <color name="main_red">#ea3e45</color>
 </resources>

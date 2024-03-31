@@ -2,7 +2,8 @@
     <string name="app_name">EnglishManual</string>
     <string name="author">Author</string>
     <string name="publisher">Publisher</string>
-    <string name="add_to_my_books">Add to MyBooks</string>
+    <string name="add_to_my_books">Collect Book</string>
+    <string name="remove_from_my_books">Remove Collect</string>
     <string name="free_reading">Free Reading</string>
 
     <string name="book_action_study">App Study</string>

@@ -4,6 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import tech.lyuku.englishmanual.features.books.data.db.BookDao
+import tech.lyuku.englishmanual.features.books.data.db.IBookDao
 import tech.lyuku.englishmanual.features.books.data.repository.BooksRepositoryImpl
 import tech.lyuku.englishmanual.features.books.data.repository.IBooksRepository
 
@@ -14,4 +16,6 @@ interface IBooksModule {
     @Binds
     fun bindBooksRepository(booksRepositoryImpl: BooksRepositoryImpl): IBooksRepository
 
+    @Binds
+    fun bindBookDao(bookDao: BookDao): IBookDao
 }
