@@ -37,12 +37,16 @@ class BookDetailActivity : AppCompatActivity() {
     }
 
     private fun init(binding: ActivityBookDetailBinding) {
+        @Suppress("DEPRECATION")
         val bookItem = intent.getParcelableExtra<BookItem>(EXTRA_KEY_BOOK_ITEM)
         if (bookItem == null) {
             finish()
             return
         }
         viewModel.init(bookItem)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val adapter = BookDetailActionAdapter { action ->
             Toast.makeText(this, "Action: ${getString(action.actionName)}", Toast.LENGTH_SHORT)
@@ -54,9 +58,6 @@ class BookDetailActivity : AppCompatActivity() {
         adapter.submitList(viewModel.actions)
         binding.rvBookDetailActions.adapter = adapter
 
-        viewModel.closeActivity.observe(this) {
-            finish()
-        }
         viewModel.showMessageEvent.observe(this) {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         }
@@ -67,6 +68,11 @@ class BookDetailActivity : AppCompatActivity() {
                 else R.string.add_to_my_books
             )
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 
 }

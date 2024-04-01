@@ -6,6 +6,8 @@
     <string name="remove_from_my_books">Remove Collect</string>
     <string name="free_reading">Free Reading</string>
 
+    <string name="book_detail_title">Book Information</string>
+
     <string name="book_action_study">App Study</string>
     <string name="book_action_test">Test</string>
     <string name="book_action_audio">Listening</string>

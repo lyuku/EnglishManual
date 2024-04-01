@@ -22,7 +22,6 @@ class BookDetailViewModel @Inject constructor(
 ) : ViewModel() {
 
     lateinit var book: BookItem
-    val closeActivity = SingleLiveEvent<Boolean>()
     val showMessageEvent = SingleLiveEvent<String>()
     val actions = BookDetailAction.entries
 
@@ -41,10 +40,6 @@ class BookDetailViewModel @Inject constructor(
                 }
             }
         }
-    }
-
-    fun onBackClicked() {
-        closeActivity.value = true
     }
 
     fun onChangeIsMyBook() {
