@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import org.jetbrains.annotations.VisibleForTesting
 import tech.lyuku.englishmanual.core.base.DataResult
 import tech.lyuku.englishmanual.core.utils.SingleLiveEvent
 import tech.lyuku.englishmanual.features.books.data.repository.IBooksRepository
@@ -50,6 +51,7 @@ class BookDetailViewModel @Inject constructor(
         }
     }
 
+    @VisibleForTesting
     private fun removeFromMyBooks() {
         viewModelScope.launch {
             book.idBook?.run {

@@ -20,7 +20,7 @@ class BooksRepositoryImpl @Inject constructor(
         const val TOP_CATEGORY_ALL_ID = "_top"
     }
 
-    override suspend fun getBooksGroupedByCategory(): DataResult<TopCategory> =
+    override suspend fun getAllBooksCategory(): DataResult<TopCategory> =
         withContext(ioDispatcher) {
             val response = bookApi.getBooksGroupedByCategory()
             if (response.isSuccessful) {

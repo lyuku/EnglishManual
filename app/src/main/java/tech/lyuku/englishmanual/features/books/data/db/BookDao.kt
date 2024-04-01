@@ -2,13 +2,13 @@ package tech.lyuku.englishmanual.features.books.data.db
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
-import tech.lyuku.englishmanual.core.db.RealmProvider
+import tech.lyuku.englishmanual.core.db.IRealmProvider
 import tech.lyuku.englishmanual.di.RealmDispatcher
 import tech.lyuku.englishmanual.models.MyBookItem
 import javax.inject.Inject
 
 class BookDao @Inject constructor(
-    private val realmProvider: RealmProvider,
+    private val realmProvider: IRealmProvider,
     @RealmDispatcher private val realmDispatcher: CoroutineDispatcher
 ) : IBookDao {
 

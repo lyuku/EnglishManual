@@ -9,11 +9,11 @@ import kotlinx.coroutines.withContext
 class RealmProvider(
     private val context: Context,
     private val realmDispatcher: CoroutineDispatcher
-) {
+) : IRealmProvider {
 
     private lateinit var realm: Realm
 
-    suspend fun getRealm(): Realm = withContext(realmDispatcher) {
+    override suspend fun getRealm(): Realm = withContext(realmDispatcher) {
         if (!this@RealmProvider::realm.isInitialized) {
             realmConfig()
             realm = Realm.getDefaultInstance()

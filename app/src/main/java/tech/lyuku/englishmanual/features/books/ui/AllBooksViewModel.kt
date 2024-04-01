@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import tech.lyuku.englishmanual.core.base.DataResult
-import tech.lyuku.englishmanual.core.base.PageStatue
+import tech.lyuku.englishmanual.core.base.PageState
 import tech.lyuku.englishmanual.features.books.data.repository.IBooksRepository
 import tech.lyuku.englishmanual.models.TopCategory
 import javax.inject.Inject
@@ -17,28 +17,28 @@ class AllBooksViewModel @Inject constructor(
     private val booksRepository: IBooksRepository
 ) : ViewModel() {
 
-    private val _pageStatue = MutableLiveData<PageStatue>()
-    val pageStatue: LiveData<PageStatue> = _pageStatue
+    private val _pageState = MutableLiveData<PageState>()
+    val pageState: LiveData<PageState> = _pageState
 
     private val _allBooksCategoryList = MutableLiveData<TopCategory>()
     val allBooksCategoryList: LiveData<TopCategory> = _allBooksCategoryList
 
     fun loadBooks() {
-        _pageStatue.value = PageStatue.Loading
+        _pageState.value = PageState.Loading
         viewModelScope.launch {
-            when (val result = booksRepository.getBooksGroupedByCategory()) {
+            when (val result = booksRepository.getAllBooksCategory()) {
                 is DataResult.Success -> {
                     if (result.data == null) {
-                        _pageStatue.value = PageStatue.Empty
+                        _pageState.value = PageState.Empty
                     } else {
                         result.data.run {
                             _allBooksCategoryList.value = this
                         }
-                        _pageStatue.value = PageStatue.Loaded
+                        _pageState.value = PageState.Loaded
                     }
                 }
                 is DataResult.Error -> {
-                    _pageStatue.value = PageStatue.Error(result.error.message.toString())
+                    _pageState.value = PageState.Error(result.error.message.toString())
                 }
             }
         }

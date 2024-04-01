@@ -8,6 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import retrofit2.Retrofit
+import tech.lyuku.englishmanual.core.db.IRealmProvider
 import tech.lyuku.englishmanual.core.db.RealmProvider
 import tech.lyuku.englishmanual.core.network.RetrofitInstance
 import javax.inject.Singleton
@@ -23,9 +24,10 @@ class AppModel {
 
     @Singleton
     @Provides
-    fun provideRealmProvider(@ApplicationContext appContext: Context,
-                             @RealmDispatcher realmDispatcher: CoroutineDispatcher
-    ): RealmProvider =
+    fun provideRealmProvider(
+        @ApplicationContext appContext: Context,
+        @RealmDispatcher realmDispatcher: CoroutineDispatcher
+    ): IRealmProvider =
         RealmProvider(appContext, realmDispatcher)
 
 }

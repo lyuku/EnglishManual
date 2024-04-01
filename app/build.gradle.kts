@@ -75,6 +75,16 @@ dependencies {
     implementation(libs.androidx.recyclerview)
 
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.arch.core.testing)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.mockito.core)
+    androidTestImplementation(libs.mockito.android)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.espresso.intents)
+    androidTestImplementation(libs.hilt.android.testing)
+    kspTest(libs.hilt.compiler)
 }

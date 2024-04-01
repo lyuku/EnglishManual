@@ -8,7 +8,7 @@ interface IBooksRepository {
     /**
      * Get all books category
      */
-    suspend fun getBooksGroupedByCategory(): DataResult<TopCategory>
+    suspend fun getAllBooksCategory(): DataResult<TopCategory>
 
     /**
      * Check if book is in MyBooks
