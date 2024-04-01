@@ -62,8 +62,8 @@ class BookDetailActivity : AppCompatActivity() {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         }
         viewModel.isMyBook.observe(this) {
-            binding.tvMyBooks.isSelected = it
-            binding.tvMyBooks.setText(
+            binding.clBookDetailInfo.tvMyBooks.isSelected = it
+            binding.clBookDetailInfo.tvMyBooks.setText(
                 if (it) R.string.remove_from_my_books
                 else R.string.add_to_my_books
             )
