@@ -1,11 +1,14 @@
 package tech.lyuku.englishmanual.di
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import io.realm.Realm
+import kotlinx.coroutines.CoroutineDispatcher
 import retrofit2.Retrofit
+import tech.lyuku.englishmanual.core.db.RealmProvider
 import tech.lyuku.englishmanual.core.network.RetrofitInstance
 import javax.inject.Singleton
 
@@ -20,6 +23,9 @@ class AppModel {
 
     @Singleton
     @Provides
-    fun provideRealmInstance(): Realm = Realm.getDefaultInstance()
+    fun provideRealmProvider(@ApplicationContext appContext: Context,
+                             @RealmDispatcher realmDispatcher: CoroutineDispatcher
+    ): RealmProvider =
+        RealmProvider(appContext, realmDispatcher)
 
 }
