@@ -23,7 +23,7 @@
         android:layout_marginTop="@dimen/item_space_normal"
         android:layout_marginEnd="@dimen/item_space_normal"
         android:text="@string/default_empty_message"
-        android:textSize="@dimen/text_size_subtitle"
+        style="@style/TextStyleMedium"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

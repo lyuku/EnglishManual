@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@android:color/white</color>
-    <color name="colorPrimaryDark">@android:color/black</color>
-    <color name="colorAccent">@android:color/black</color>
+
+    <color name="background">@color/white</color>
+    <color name="onBackground">#ff1b1b1f</color>
+
+    <color name="primary">#ea3e45</color>
+    <color name="darkPrimary">#a32b30</color>
+    <color name="lightPrimary">#ee646a</color>
+    <color name="accent">#7c4dff</color>
+
+    <color name="nightPrimary">#a34e4b</color>
+    <color name="nightDarkPrimary">#ea706c</color>
+    <color name="nightLightPrimary">#ee8c89</color>
+    <color name="nightOnPrimary">@color/black</color>
+
+    <color name="OnPrimary">@color/white</color>
+
 
     <color name="black">@android:color/black</color>
     <color name="white">@android:color/white</color>
 
     <color name="primaryTextColor">#212121</color>
     <color name="secondaryTextColor">#424242</color>
-    <color name="toolbarIconColor">#212121</color>
     <color name="tertiaryTextColor">#909090</color>
 
     <color name="labelBackground">#e7e7e7</color>

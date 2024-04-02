@@ -44,7 +44,6 @@
                 android:layout_marginTop="@dimen/item_space_small"
                 android:lines="1"
                 android:text="@{action.actionName}"
-                android:textSize="@dimen/text_size_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
