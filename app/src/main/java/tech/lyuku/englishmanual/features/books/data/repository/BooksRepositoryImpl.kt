@@ -22,7 +22,11 @@ class BooksRepositoryImpl @Inject constructor(
 
     override suspend fun getAllBooksCategory(): DataResult<TopCategory> =
         withContext(ioDispatcher) {
-            val response = bookApi.getBooksGroupedByCategory()
+            val response = try {
+                bookApi.getBooksGroupedByCategory()
+            } catch (e: Exception) {
+                return@withContext DataResult.Error(e)
+            }
             if (response.isSuccessful) {
                 val result = response.body()
                 result?.topCategoryList?.forEach {
