@@ -3,17 +3,16 @@ package tech.lyuku.englishmanual.features.books.ui
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
-import tech.lyuku.englishmanual.core.base.PageState
+import tech.lyuku.englishmanual.core.base.AEMBasePageStateActivity
 import tech.lyuku.englishmanual.databinding.ActivityAllBooksBinding
 import tech.lyuku.englishmanual.features.books.ui.adapter.BookCategoryAdapter
 import tech.lyuku.englishmanual.models.BookItem
 
 @AndroidEntryPoint
-class AllBooksActivity : AppCompatActivity() {
+class AllBooksActivity : AEMBasePageStateActivity() {
 
     private val viewModel: AllBooksViewModel by viewModels()
 
@@ -36,37 +35,10 @@ class AllBooksActivity : AppCompatActivity() {
         }
         viewModel.allBooksCategoryList.observe(this) {
             adapter.submitList(it.subCategoryList)
+            binding.rvBookCategory.visibility = View.VISIBLE
         }
-        binding.evAllBooksError.setOnRetry {
+        super.initPageState(viewModel.pageState, binding.flInfoViewContainer) {
             viewModel.loadBooks()
-        }
-        viewModel.pageState.observe(this) {
-            when (it) {
-                is PageState.Error -> {
-                    binding.pbAllBooksLoading.visibility = View.GONE
-                    binding.evAllBooksEmpty.hideEmpty()
-                    binding.evAllBooksError.showError(it.message)
-                }
-
-                is PageState.Loading -> {
-                    binding.pbAllBooksLoading.visibility = View.VISIBLE
-                    binding.evAllBooksEmpty.hideEmpty()
-                    binding.evAllBooksError.hideError()
-                }
-
-                is PageState.Loaded -> {
-                    binding.rvBookCategory.visibility = View.VISIBLE
-                    binding.pbAllBooksLoading.visibility = View.GONE
-                    binding.evAllBooksEmpty.hideEmpty()
-                    binding.evAllBooksError.hideError()
-                }
-
-                is PageState.Empty -> {
-                    binding.pbAllBooksLoading.visibility = View.GONE
-                    binding.evAllBooksEmpty.showEmpty()
-                    binding.evAllBooksError.hideError()
-                }
-            }
         }
         binding.rvBookCategory.adapter = adapter
     }
