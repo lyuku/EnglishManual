@@ -5,6 +5,10 @@
     <string name="add_to_my_books">Collect Book</string>
     <string name="remove_from_my_books">Remove Collect</string>
     <string name="free_reading">Free Reading</string>
+    <string name="error">error</string>
+    <string name="retry">Retry</string>
+
+    <string name="default_empty_message">No data for now, you can try later</string>
 
     <string name="book_detail_title">Book Information</string>
 

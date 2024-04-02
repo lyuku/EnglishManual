@@ -3,6 +3,10 @@
     <dimen name="item_space_small">4dp</dimen>
     <dimen name="item_space_middle">8dp</dimen>
     <dimen name="item_space_normal">16dp</dimen>
+    <dimen name="item_space_large_1">24dp</dimen>
 
     <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_subtitle">16sp</dimen>
+    <dimen name="text_size_content">14sp</dimen>
 </resources>
