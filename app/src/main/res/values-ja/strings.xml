@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">英語手本</string>
+    <string name="author">著者</string>
+    <string name="publisher">出版社</string>
+    <string name="add_to_my_books">マイリスト追加</string>
+    <string name="remove_from_my_books">マイリストから外す</string>
+    <string name="free_reading">Pro 購読</string>
+    <string name="error">異常</string>
+    <string name="retry">再試行</string>
+
+    <string name="default_empty_message">現在、利用できるデータはありません</string>
+
+    <string name="book_detail_title">書籍紹介</string>
+
+    <string name="book_action_study">学習トップ</string>
+    <string name="book_action_test">テスト</string>
+    <string name="book_action_audio">音声（無料）</string>
+    <string name="book_action_shadowing">SWトレ</string>
+    <string name="book_action_vocab">単語一覧</string>
+    <string name="book_action_mark_sheet">マークシート</string>
+    <string name="book_action_study_time">学習記録</string>
+</resources>
