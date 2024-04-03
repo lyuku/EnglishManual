@@ -24,7 +24,6 @@ android {
     buildTypes {
         debug {
             isMinifyEnabled = false
-            buildConfigField("String", "BASE_URL", "\"https://dev-app-api.abceed.com/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -32,7 +31,6 @@ android {
         }
         release {
             isMinifyEnabled = true
-            buildConfigField("String", "BASE_URL", "\"https://dev-app-api.abceed.com/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -55,6 +53,9 @@ android {
 
 dependencies {
 
+    implementation(project(":base"))
+    implementation(project(":data"))
+    implementation(project(":features:books"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.fragment.ktx)
     implementation(libs.androidx.appcompat)
