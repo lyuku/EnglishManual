@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EnglishManual" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/darkPrimary</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="Theme.EnglishManual" parent="Base.Theme.EnglishManual" />
+
+    <style name="TextStyleMedium" parent="@style/TextAppearance.AppCompat.Medium" />
+
+    <style name="TextAppTitle" parent="@style/TextAppearance.AppCompat.Headline" />
+</resources>

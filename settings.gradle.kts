@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "EnglishManual"
 include(":app")
- 
+include(":data")
+include(":features:books")
+include(":base")

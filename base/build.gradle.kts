@@ -1,36 +1,34 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.ksp)
     alias(libs.plugins.kapt)
-    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
     id("realm-android")
 }
 
 android {
-    namespace = "tech.lyuku.englishmanual"
+    namespace = "tech.lyuku.englishmanual.base"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "tech.lyuku.englishmanual"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         debug {
             isMinifyEnabled = false
+            buildConfigField("String", "BASE_URL", "\"https://dev-app-api.abceed.com/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
+            buildConfigField("String", "BASE_URL", "\"https://dev-app-api.abceed.com/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -51,11 +49,12 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
-    implementation(project(":base"))
-    implementation(project(":data"))
-    implementation(project(":features:books"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.fragment.ktx)
     implementation(libs.androidx.appcompat)
@@ -75,17 +74,5 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.androidx.recyclerview)
 
-    testImplementation(libs.junit)
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.arch.core.testing)
 
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.mockito.core)
-    androidTestImplementation(libs.mockito.android)
-    androidTestImplementation(libs.kotlinx.coroutines.test)
-    androidTestImplementation(libs.androidx.espresso.intents)
-    androidTestImplementation(libs.hilt.android.testing)
-    kspTest(libs.hilt.compiler)
 }

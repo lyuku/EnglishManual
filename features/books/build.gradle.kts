@@ -1,36 +1,25 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kapt)
     alias(libs.plugins.hilt)
-    id("realm-android")
 }
 
 android {
-    namespace = "tech.lyuku.englishmanual"
+    namespace = "tech.lyuku.englishmanual.books"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "tech.lyuku.englishmanual"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        debug {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -44,6 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         viewBinding = true
         dataBinding = true
@@ -55,7 +45,6 @@ dependencies {
 
     implementation(project(":base"))
     implementation(project(":data"))
-    implementation(project(":features:books"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.fragment.ktx)
     implementation(libs.androidx.appcompat)
@@ -87,5 +76,4 @@ dependencies {
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.espresso.intents)
     androidTestImplementation(libs.hilt.android.testing)
-    kspTest(libs.hilt.compiler)
 }
