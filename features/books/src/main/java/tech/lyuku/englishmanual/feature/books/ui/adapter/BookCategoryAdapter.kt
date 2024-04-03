@@ -3,7 +3,6 @@ package tech.lyuku.englishmanual.feature.books.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import tech.lyuku.englishmanual.base.core.ui.ACommonAdapter
 import tech.lyuku.englishmanual.base.core.ui.ACommonViewHolder
 import tech.lyuku.englishmanual.books.databinding.ItemBookCategoryBinding
@@ -33,7 +32,7 @@ class BookCategoryAdapter(
         private val moviesAdapter by lazy {
             val adapter = BookAdapter(onBookClicked).apply {
                 setHasStableIds(true)
-                stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+                stateRestorationPolicy = StateRestorationPolicy.PREVENT_WHEN_EMPTY
             }
             binding.rvBooks.adapter = adapter
             adapter

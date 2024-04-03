@@ -28,13 +28,6 @@ class AllBooksViewModelTest {
 
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
-    @Before
-    fun setUp() {
-    }
-
-    @After
-    fun tearDown() {
-    }
 
     @Test
     fun `check normal result`() = runTest {
