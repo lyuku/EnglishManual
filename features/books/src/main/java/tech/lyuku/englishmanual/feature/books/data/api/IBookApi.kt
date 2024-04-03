@@ -1,4 +1,4 @@
-package tech.lyuku.englishmanual.feature.books.data.net
+package tech.lyuku.englishmanual.feature.books.data.api
 
 import retrofit2.Response
 import retrofit2.http.GET

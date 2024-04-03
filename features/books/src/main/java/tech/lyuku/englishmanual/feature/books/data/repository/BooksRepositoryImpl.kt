@@ -5,7 +5,7 @@ import kotlinx.coroutines.withContext
 import tech.lyuku.englishmanual.base.core.base.DataResult
 import tech.lyuku.englishmanual.base.di.IoDispatcher
 import tech.lyuku.englishmanual.feature.books.data.db.IBookDao
-import tech.lyuku.englishmanual.feature.books.data.net.IBookApi
+import tech.lyuku.englishmanual.feature.books.data.api.IBookApi
 import tech.lyuku.englishmanual.data.models.MyBookItem
 import tech.lyuku.englishmanual.data.models.TopCategory
 import javax.inject.Inject
