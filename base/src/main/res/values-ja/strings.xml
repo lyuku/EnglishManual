@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">英語手本</string>
+    <string name="error">異常</string>
+    <string name="retry">再試行</string>
+    <string name="default_empty_message">現在、利用できるデータはありません</string>
+</resources>
