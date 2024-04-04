@@ -36,9 +36,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:onChangeIsMyBook =
-                "@{viewModel.onChangeIsMyBook}"
+                "@{viewModel::onChangeIsMyBook}"
             app:freeReading =
-                "@{viewModel.freeReading}"
+                "@{viewModel::freeReading}"
             app:book="@{viewModel.book}" />
 
         <androidx.recyclerview.widget.RecyclerView
