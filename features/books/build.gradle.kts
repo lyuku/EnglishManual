@@ -75,7 +75,8 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.arch.core.testing)
 
-    kaptAndroidTest("androidx.databinding:databinding-compiler:8.3.1")
+    androidTestImplementation(libs.androidx.espresso.contrib)
+    kaptAndroidTest(libs.databinding.compiler)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.mockito.core)

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <application>
+    <application android:theme="@style/Theme.EnglishManual">
         <activity
             android:name="tech.lyuku.englishmanual.feature.books.ui.AllBooksActivity"
-            android:exported="true"
-            android:theme="@style/Theme.EnglishManual">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
