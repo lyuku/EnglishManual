@@ -13,7 +13,7 @@ android {
     defaultConfig {
         minSdk = 24
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "tech.lyuku.englishmanual.feature.CustomTestRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -38,6 +38,12 @@ android {
         viewBinding = true
         dataBinding = true
         buildConfig = true
+    }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
     }
 }
 
@@ -69,6 +75,7 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.arch.core.testing)
 
+    kaptAndroidTest("androidx.databinding:databinding-compiler:8.3.1")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.mockito.core)

@@ -9,15 +9,22 @@ import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import tech.lyuku.englishmanual.base.core.base.AEMBasePageStateActivity
 import tech.lyuku.englishmanual.base.core.base.PageState
+import tech.lyuku.englishmanual.base.core.base.PageStateObserver
 import tech.lyuku.englishmanual.books.databinding.ActivityAllBooksBinding
-import tech.lyuku.englishmanual.feature.books.ui.adapter.BookCategoryAdapter
 import tech.lyuku.englishmanual.data.models.BookItem
+import tech.lyuku.englishmanual.feature.books.ui.adapter.BookCategoryAdapter
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class AllBooksActivity : AEMBasePageStateActivity() {
 
     private val viewModel: AllBooksViewModel by viewModels()
     private lateinit var binding: ActivityAllBooksBinding
+
+
+    @Inject
+    lateinit var stateObserver: PageStateObserver
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAllBooksBinding.inflate(layoutInflater)
@@ -40,6 +47,7 @@ class AllBooksActivity : AEMBasePageStateActivity() {
             binding.rvBookCategory.visibility = View.VISIBLE
         }
         viewModel.pageState.observe(this) {
+            stateObserver.onPageStateChange(it)
             when (it) {
                 is PageState.Error -> {
                     super.showErrorView(it.message) {
