@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import tech.lyuku.englishmanual.books.R
 import tech.lyuku.englishmanual.books.databinding.ActivityBookDetailBinding
-import tech.lyuku.englishmanual.feature.books.ui.adapter.BookDetailActionAdapter
 import tech.lyuku.englishmanual.data.models.BookItem
+import tech.lyuku.englishmanual.feature.books.ui.adapter.BookDetailActionAdapter
 
 @AndroidEntryPoint
 class BookDetailActivity : AppCompatActivity() {
@@ -19,7 +19,7 @@ class BookDetailActivity : AppCompatActivity() {
     private val viewModel: BookDetailViewModel by viewModels()
 
     companion object {
-        private const val EXTRA_KEY_BOOK_ITEM = "extra_key_book_item"
+        const val EXTRA_KEY_BOOK_ITEM = "extra_key_book_item"
         fun getStartIntent(context: Context, bookItem: BookItem): Intent {
             return Intent(context, BookDetailActivity::class.java).apply {
                 putExtra(EXTRA_KEY_BOOK_ITEM, bookItem)

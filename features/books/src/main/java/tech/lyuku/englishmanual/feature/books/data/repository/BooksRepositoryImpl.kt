@@ -34,7 +34,7 @@ class BooksRepositoryImpl @Inject constructor(
                         return@withContext DataResult.Success(it)
                     }
                 }
-                DataResult.Error(Exception("No all category found"))
+                DataResult.Success(null)
             } else {
                 DataResult.Error(Exception(response.message()))
             }

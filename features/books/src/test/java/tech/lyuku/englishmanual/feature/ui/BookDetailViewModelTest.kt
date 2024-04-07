@@ -11,6 +11,9 @@ import org.junit.Test
 import org.junit.rules.TestRule
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.`when`
+import tech.lyuku.englishmanual.base.core.base.DataResult
+import tech.lyuku.englishmanual.feature.books.data.repository.IBooksRepository
+import tech.lyuku.englishmanual.feature.books.ui.BookDetailViewModel
 import tech.lyuku.englishmanual.feature.tools.MainCoroutineRule
 import tech.lyuku.englishmanual.feature.tools.getOrAwaitValue
 
@@ -29,11 +32,10 @@ class BookDetailViewModelTest {
     @Test
     fun `check init is my book`() = runTest {
 
-        val fakeRepo = mock(tech.lyuku.englishmanual.feature.books.data.repository.IBooksRepository::class.java).apply {
-            `when`(this.checkBookInMyBooks(fakeBookId)).thenReturn(tech.lyuku.englishmanual.base.core.base.DataResult.Success(true))
+        val fakeRepo = mock(IBooksRepository::class.java).apply {
+            `when`(this.checkBookInMyBooks(fakeBookId)).thenReturn(DataResult.Success(true))
         }
-        val bookDetailViewModel =
-            tech.lyuku.englishmanual.feature.books.ui.BookDetailViewModel(fakeRepo)
+        val bookDetailViewModel = BookDetailViewModel(fakeRepo)
         bookDetailViewModel.init(fakeBookItem)
         advanceUntilIdle()
         assert(bookDetailViewModel.isMyBook.getOrAwaitValue())
@@ -41,11 +43,10 @@ class BookDetailViewModelTest {
 
     @Test
     fun `check init not my book`() = runTest {
-        val fakeRepo = mock(tech.lyuku.englishmanual.feature.books.data.repository.IBooksRepository::class.java).apply {
-            `when`(this.checkBookInMyBooks(fakeBookId)).thenReturn(tech.lyuku.englishmanual.base.core.base.DataResult.Success(false))
+        val fakeRepo = mock(IBooksRepository::class.java).apply {
+            `when`(this.checkBookInMyBooks(fakeBookId)).thenReturn(DataResult.Success(false))
         }
-        val bookDetailViewModel =
-            tech.lyuku.englishmanual.feature.books.ui.BookDetailViewModel(fakeRepo)
+        val bookDetailViewModel = BookDetailViewModel(fakeRepo)
         bookDetailViewModel.init(fakeBookItem)
         advanceUntilIdle()
         assert(!bookDetailViewModel.isMyBook.getOrAwaitValue())
@@ -53,12 +54,12 @@ class BookDetailViewModelTest {
 
     @Test
     fun `check change is my book from true to false`() = runTest {
-        val fakeRepo = mock(tech.lyuku.englishmanual.feature.books.data.repository.IBooksRepository::class.java).apply {
-            `when`(this.checkBookInMyBooks(fakeBookId)).thenReturn(tech.lyuku.englishmanual.base.core.base.DataResult.Success(true))
-            `when`(this.removeFromMyBooks(fakeBookId)).thenReturn(tech.lyuku.englishmanual.base.core.base.DataResult.Success(true))
+        val fakeRepo = mock(IBooksRepository::class.java).apply {
+            `when`(this.checkBookInMyBooks(fakeBookId)).thenReturn(DataResult.Success(true))
+            `when`(this.removeFromMyBooks(fakeBookId)).thenReturn(DataResult.Success(true))
         }
         val bookDetailViewModel =
-            tech.lyuku.englishmanual.feature.books.ui.BookDetailViewModel(fakeRepo)
+            BookDetailViewModel(fakeRepo)
         bookDetailViewModel.init(fakeBookItem)
         advanceUntilIdle()
         bookDetailViewModel.onChangeIsMyBook()
@@ -68,12 +69,12 @@ class BookDetailViewModelTest {
 
     @Test
     fun `check change is my book from false to true`() = runTest {
-        val fakeRepo = mock(tech.lyuku.englishmanual.feature.books.data.repository.IBooksRepository::class.java).apply {
-            `when`(this.checkBookInMyBooks(fakeBookId)).thenReturn(tech.lyuku.englishmanual.base.core.base.DataResult.Success(false))
-            `when`(this.addToMyBooks(fakeBookId)).thenReturn(tech.lyuku.englishmanual.base.core.base.DataResult.Success(true))
+        val fakeRepo = mock(IBooksRepository::class.java).apply {
+            `when`(this.checkBookInMyBooks(fakeBookId)).thenReturn(DataResult.Success(false))
+            `when`(this.addToMyBooks(fakeBookId)).thenReturn(DataResult.Success(true))
         }
         val bookDetailViewModel =
-            tech.lyuku.englishmanual.feature.books.ui.BookDetailViewModel(fakeRepo)
+            BookDetailViewModel(fakeRepo)
         bookDetailViewModel.init(fakeBookItem)
         advanceUntilIdle()
         bookDetailViewModel.onChangeIsMyBook()
